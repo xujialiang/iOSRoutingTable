@@ -3,6 +3,8 @@
 ## 获取iOS手机路由表
 看到surge app里提供了路由表信息，感觉在调试网络时候非常有用。
 
+![](https://raw.githubusercontent.com/xujialiang/iOSRoutingTable/master/demo.jpg)
+
 `
 __block NSString *showStr = @"Destination        Gateway            Flags        Refs      Use   Netif Expire    \r\n";
     
