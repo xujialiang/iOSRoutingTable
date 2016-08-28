@@ -1,10 +1,29 @@
-# iOSRoutingTable
+//
+//  ViewController.m
+//  iOSRouter
+//
+//  Created by 徐佳良 on 16/8/27.
+//  Copyright © 2016年 Credoo. All rights reserved.
+//
 
-## 获取iOS手机路由表
-看到surge app里提供了路由表信息，感觉在调试网络时候非常有用。
+#import "ViewController.h"
+#import "Router/Router.h"
 
-`
-__block NSString *showStr = @"Destination        Gateway            Flags        Refs      Use   Netif Expire    \r\n";
+@interface ViewController (){
+    
+    __weak IBOutlet UITextView *txtView;
+    
+}
+
+@end
+
+@implementation ViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+
+    
+    __block NSString *showStr = @"Destination        Gateway            Flags        Refs      Use   Netif Expire    \r\n";
     
     NSArray<RoutingTableItem *> *result = [Router getRoutingTable];
     [result enumerateObjectsUsingBlock:^(RoutingTableItem *obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -22,11 +41,14 @@ __block NSString *showStr = @"Destination        Gateway            Flags       
     }];
 
     self->txtView.text = showStr;
-`
+    
+}
 
-TODO:
-flags 可能不全，已尽最大努力找了linux相关netstat的资料了。
 
-感谢以下开源项目给我的帮助
-https://github.com/Shmoopi/iOS-System-Services
-https://github.com/ygweric/IOS-RouteAddress
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+@end
