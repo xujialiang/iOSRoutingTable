@@ -6,9 +6,11 @@
 ![](https://raw.githubusercontent.com/xujialiang/iOSRoutingTable/master/demo.jpg)
 
 `
-__block NSString *showStr = @"Destination        Gateway            Flags        Refs      Use   Netif Expire    \r\n";
-    
+
+	__block NSString *showStr = @"Destination        Gateway            Flags        Refs      Use   Netif Expire    \r\n";
+	
     NSArray<RoutingTableItem *> *result = [Router getRoutingTable];
+    
     [result enumerateObjectsUsingBlock:^(RoutingTableItem *obj, NSUInteger idx, BOOL * _Nonnull stop) {
         NSString *dest = [[NSString stringWithFormat:@"%@", obj.destination] stringByPaddingToLength:19 withString:@" " startingAtIndex:0];
         NSString *gateway = [[NSString stringWithFormat:@"%@", obj.gateway] stringByPaddingToLength:19 withString:@" " startingAtIndex:0];
@@ -26,9 +28,14 @@ __block NSString *showStr = @"Destination        Gateway            Flags       
     self->txtView.text = showStr;
 `
 
-TODO:
+----
+## TODO:
 flags 可能不全，已尽最大努力找了linux相关netstat的资料了。
 
+
+----
 感谢以下开源项目给我的帮助
+
 https://github.com/Shmoopi/iOS-System-Services
+
 https://github.com/ygweric/IOS-RouteAddress
